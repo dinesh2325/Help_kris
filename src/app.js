@@ -3,11 +3,10 @@ const app=express()
 const path=require("path")                                     //for fetching path detail
 
 require("./db/connect")                                        //mongodb connection
+const collection =require("./model/logindetail")
 
-// const { urlencoded } = require("express")
-// app.use(urlencoded({extended:false}))   
-
-app.use(express.urlencoded({extended:false}))
+app.use(express.json())                                        //as a bodyparser
+app.use(express.urlencoded({extended:false}))                  
 
 const port=process.env.PORT || 3000
 const ejs=require("ejs")                                       //for register partial method
@@ -35,6 +34,46 @@ app.set("views",templatepath)
 //.........routing ...............
 app.get("/",function(req,res){
     res.render("home");
+})
+
+
+
+app.get("/signup",function(req,res){
+    res.render("signup");
+})
+
+
+app.post("/signup",async(req,res)=>{
+        const data={
+            name:req.body.name,
+            email:req.body.email,
+            password:req.body.password,
+            phone:req.body.phone
+        }
+        await collection.insertMany([data])
+        res.render("home");
+    })
+    
+
+
+app.get("/login",function(req,res){
+    res.render("login");
+})
+
+app.post("/login",async(req,res)=>{
+    try{
+        const check=await collection.findOne({email:req.body.email})
+        if(check.password===req.body.password)
+        {
+            res.render("home")
+        }
+        else{
+            res.send("invalid")
+        }
+    } 
+    catch{
+        res.render("wrong detail");
+    }
 })
 
 
