@@ -9,10 +9,22 @@
     <title>Document</title>
 </head>
 <body>
-    <%- include('../partials/navbar.ejs') %>                     <!-- for including navbar from partials -->
-     
-    <h1>home is here design is pending</h1>
- 
+   
+    <!-- ..................................................... -->
+    
+    <div class="dropdown">
+       <button class="dropbtn"><%=user.name%></button>               <!-- for displaying current user -->
+        <div class="dropdown-content">
+          <a href="#">profile</a>
+          <a href="#"></a>
+          <a href="/home">Logout</a>
+        </div>
+      </div>
+
+
+      <!-- ...................................... ...................>
+
+
    <script src="../jq/jquery.js" type="text/javascript"></script>
    <script src="../js/bootstrap.js" type="text/javascript"></script>
 

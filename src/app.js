@@ -1,6 +1,10 @@
 const express=require("express")
 const app=express()
 const path=require("path")                                     //for fetching path detail
+const session=require("express-session");
+
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))  //session middleware
+
 
 require("./db/connect")                                        //mongodb connection
 const collection =require("./model/logindetail")
@@ -51,7 +55,8 @@ app.post("/signup",async(req,res)=>{
             phone:req.body.phone
         }
         await collection.insertMany([data])
-        res.render("home");
+
+        res.render("home2",{user:req.body})
     })
     
 
@@ -60,12 +65,23 @@ app.get("/login",function(req,res){
     res.render("login");
 })
 
+app.get("/home",function(req,res){
+    res.render("home");
+})
+
 app.post("/login",async(req,res)=>{
     try{
         const check=await collection.findOne({email:req.body.email})
+        req.session.user_id=check._id;
         if(check.password===req.body.password)
         {
-            res.render("home")
+            try{
+                const userData=await collection.findById({_id:req.session.user_id})
+                res.render("home2",{user:userData});
+            }
+            catch(err){
+                res.render(err);
+            }
         }
         else{
             res.send("invalid")
@@ -75,6 +91,17 @@ app.post("/login",async(req,res)=>{
         res.render("wrong detail");
     }
 })
+
+app.get("/home2",(req,res)=>{
+   
+        res.render("home2");
+
+})
+
+
+   
+    
+   
 
 
 
