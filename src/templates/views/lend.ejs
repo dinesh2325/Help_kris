@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+   
+     
+    <!DOCTYPE html>
+<html>
+<body>
+
+
+    
+    <form action="/profile/:<%=user._id%>/lend" method="post" >
+        <input name="name" type="text"  placeholder="objectname">
+        <input  name="price" type="text"  placeholder="Amount">
+        <input name="time"  type="text" placeholder="time duration">
+        <input name="username" type="checkbox" value="<%=user.name%>">
+        <input name="userphone" type="checkbox" value="<%=user.phone%>">
+        <input name="userid" type="checkbox" value="<%=user._id%>">
+        <button type="submit" >lend it</button>
+      </form>
+
+
+
+</body>
+</html>
+
+
+   <script src="../jq/jquery.js" type="text/javascript"></script>
+   <script src="../js/bootstrap.js" type="text/javascript"></script>
+
+</body>
+</html>

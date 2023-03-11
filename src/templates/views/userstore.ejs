@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>my lending</h1>
+    <table>
+        <tr>
+            <th scope="col">
+                objectname
+            </th>
+            <th scope="col">
+                objectprice
+            </th>
+            <th scope="col">
+                returnDate
+            </th>
+        </tr>
+        <tbody>
+            <% if(record.length>0){%>
+            <%record.forEach(function(element){%>
+                <tr>
+                    <td><%=element.name%></td>
+                    <td><%=element.price%></td>
+                    <td><%=element.time%></td>
+                </tr>    
+                <%})%>
+                <%}%>
+        </tbody>
+    </table>
+</body>
+</html>

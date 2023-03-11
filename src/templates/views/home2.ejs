@@ -14,13 +14,19 @@
     
     <div class="dropdown">
        <button class="dropbtn"><%=user.name%></button>               <!-- for displaying current user -->
+    
         <div class="dropdown-content">
-          <a href="#">profile</a>
-          <a href="#"></a>
-          <a href="/home">Logout</a>
+        
+       
+        <a href="/profile/<%=user._id%>">profile</a>
+      
+             
+        <a href="/home">Logout</a>
         </div>
       </div>
-
+ 
+      <button type="button" class="btn btn-secondary btn-lg"><a href="/store">borrow</a></button>
+      <button type="button" class="btn btn-secondary btn-lg"><a href="/profile/<%=user._id%>/lend">lend now</a></button> 
 
       <!-- ...................................... ...................>
 
