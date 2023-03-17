@@ -18,12 +18,13 @@
     <li>account balance</li>
     <li>address</li>
     <li><%=user.phone%></li>
-    <li><a href="#">borrowed items</a></li>
+    <button type="button" class="btn btn-secondary btn-lg"><a href="/profile/<%=user._id%>/borrowstore">borrow</a></button>
     <li><a href="/<%=user._id%>/userstore">lended items</a></li>
+    
    </ul>
-  
+     
 
-   
+  
    <script src="../jq/jquery.js" type="text/javascript"></script>
    <script src="../js/bootstrap.js" type="text/javascript"></script>
 
