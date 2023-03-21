@@ -1,6 +1,6 @@
 const mongoose=require("mongoose")
 const validator=require('validator')
-
+const encrypt=require("mongoose-encryption")
 
 //for login detail................
 const RegisterSchema=new mongoose.Schema({
@@ -12,6 +12,7 @@ const RegisterSchema=new mongoose.Schema({
     email:{
          type:String,
          required:true,
+         unique:true,
          validator(value){
             if(!validator.isEmail(value))
             {
@@ -29,7 +30,9 @@ const RegisterSchema=new mongoose.Schema({
         required:true,
        
     }
-})
+});
+
+
 
 //making collection based on schema
 const collection=new mongoose.model("Collection1",RegisterSchema)
