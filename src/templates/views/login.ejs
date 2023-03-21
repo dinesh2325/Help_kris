@@ -5,21 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/login.css">
     <title>Document</title>
 </head>
 <body>
+    <div class="box">
+
     
-    <h2>login here</h2>
+    <div class="container">
+        <span >Have an account?</span>
+
+        <div class="top-header">
+            
+            <header>Login</header>
+        </div>
+        
    
     <form action="/login" method="post">
-        <input type="text" name="email" placeholder="Email">
+    <div class="input-field">
+    <input type="text" name="email" placeholder="Email" class="input">
+    </div>
+       
         <br>
-        <input type="password" name="password" placeholder="password">
+        
+        <div class="input-field">
+            <input type="password" name="password" placeholder="password" class="input"> 
+        </div>
+        
         <br>
-        <input type="submit" >
-        <a href="/signup">create a new account</a>
+        
+
+        <div >
+            <input type="submit" class="submit" class="move">
+        </div>
+        <br>
+        <div class="down">
+            <a href="/signup" class="reg"> New Here? Register</a>
+        </div>
+        
     </form>
+    </div>
+</div>
+    
 </body>
 
 
@@ -29,3 +56,19 @@
 
 </body>
 </html>
+
+
+<!-- <h1>Here is the login form</h1>
+    
+        <h2>login here</h2>
+   
+    <form action="/login" method="post">
+        <input type="text" name="email" placeholder="Email" class="el">
+        
+        <br>
+        <div> </div>
+        <input type="password" name="password" placeholder="password" class="pass">
+        <br>
+        <input type="submit" class="sub" >
+        <a href="/signup" class="reg"> New Here? Register</a>
+    </form> -->
