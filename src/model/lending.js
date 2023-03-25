@@ -10,7 +10,8 @@ const LendingSchema=new mongoose.Schema({
     time:Number,
     sellername:String,
     sellerphone:String,
-    sellerid:String
+    sellerid:String,
+    status:String,
     
 })
 

@@ -51,11 +51,9 @@ body{
         cursor: pointer;
         left: 70%;
         top: 9%;
-        transition: color 0.4s linear;
+        transition: color 0.4s linear ;
+        
     }
-    
-    
-
 
 h1{
     position: absolute;

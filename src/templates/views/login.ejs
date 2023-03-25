@@ -19,24 +19,30 @@
             
             <header>Login</header>
         </div>
-        
-   
+
+        <!-- flash message -->
+        <%if(message!=''){%>
+            <div id="show">
+                    <p class="error-message"><%=message%></p> 
+            </div>
+            <%}%>
+
     <form action="/login" method="post">
     <div class="input-field">
-    <input type="text" name="email" placeholder="Email" class="input">
+    <input type="text" name="email" placeholder="Email" class="input" required/>
     </div>
        
         <br>
         
         <div class="input-field">
-            <input type="password" name="password" placeholder="password" class="input"> 
+            <input type="password" name="password" placeholder="password" class="input" required/> 
         </div>
         
         <br>
         
 
         <div >
-            <input type="submit" class="submit" class="move">
+            <input type="submit" class="submit" class="move" required/>
         </div>
         <br>
         <div class="down">
@@ -50,6 +56,13 @@
 </body>
 
 
+    
+	<script>
+		function hidediv(){
+			document.getElementById('show').style.visibility='hidden';
+		}
+		setTimeout('hidediv()',3000);
+	</script>
 
    <script src="../jq/jquery.js" type="text/javascript"></script>
    <script src="../js/bootstrap.js" type="text/javascript"></script>

@@ -30,6 +30,7 @@ const RegisterSchema=new mongoose.Schema({
         required:true,
        
     }
+
 });
 
 

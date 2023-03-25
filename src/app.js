@@ -5,6 +5,8 @@ const session=require("express-session");
 
 
 
+
+
 app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))  //session middleware
 
 
@@ -18,8 +20,8 @@ const BorrowItem =require("./model/borrow.js")      //borrowed items
 
 
 
-app.use(express.json())                                        //as a bodyparser
-app.use(express.urlencoded({extended:true}))                  
+app.use(express.json())                                        
+app.use(express.urlencoded({extended:true}))                     //as a bodyparser
 
 const port=process.env.PORT || 3000
 const ejs=require("ejs")                                       //for register partial method
@@ -53,29 +55,38 @@ app.get("/",function(req,res){
 
 //rendering signup page
 app.get("/signup",function(req,res){
-    res.render("signup");
+    res.render("signup",{success:''});
 })
 
 
 app.post("/signup",async(req,res)=>{
-        const userexist=await collection.findOne({email:req.body.email});
-        const data={
-            name:req.body.name,
-            email:req.body.email,
-            password:req.body.password,
-            phone:req.body.phone
-            
-        }
-        await collection.insertMany([data])
+    
+    const data={
+        name:req.body.name,
+        email:req.body.email,
+        password:req.body.password,
+        phone:req.body.phone
+    }
+    
+    const userExist = await collection.exists({ email:req.body.email });
+
+     if (userExist){
+        return res.render("signup",{success:'email is already in use'});            //user already exist or not 
+     }
         
-        res.render("home");
- 
+
+
+    await collection.insertMany([data])       
+    res.render("login",{message:''});
+
+      
+   
     })
     
 
 //login page get request
 app.get("/login",function(req,res){
-    res.render("login");
+    res.render("login",{message:''});
 })
 
 
@@ -95,15 +106,15 @@ app.post("/login",async(req,res)=>{
                 res.render("home2",{user:userData});
             }
             catch(err){
-                res.render(err);
+               return  res.render("login",{message:'invalid user data'});
             }
         }
         else{
-            res.send("invalid")
+             return res.render("login",{message:'invalid user data'})
         }
     } 
     catch{
-        res.render("wrong detail");
+        res.render("login",{message:'invalid user data'});
     }
 })
 
@@ -114,6 +125,8 @@ app.get("/home2",(req,res)=>{
         res.render("home2");
 
 })
+
+
 
 //render profile page
 app.get("/profile/:id",async(req,res)=>{
@@ -144,23 +157,18 @@ app.get("/profile/:id/lend",async(req,res)=>{
 
 //lending a items
 app.post("/profile/:id/lend",async(req,res)=>{
-    
         const data={
             name:req.body.name,
             price:req.body.price,
             time:req.body.time,
             sellername:req.body.username,
             sellerphone:req.body.userphone,
-            sellerid:req.body.userid
+            sellerid:req.body.userid,
+            status:"available"
         }
+        
         await LendItem.insertMany([data])
-        var redirectTo = req.session.redirectTo || '/';
-        delete req.session.redirectTo;
-        // is authenticated ?
-        res.redirect(redirectTo);
-
-     
-  
+      
 })
 
 
@@ -180,7 +188,7 @@ app.get("/:id/userstore",async(req,res)=>{
 //store for all items
 app.get("/profile/:id/store",async(req,res)=>{
     try{
-        const check=await LendItem.find({});
+             const check=await LendItem.find({});
     
             const buyerdata=await collection.findById({_id:req.params.id}); 
             res.render("store",{record:check,user:buyerdata});
@@ -192,7 +200,7 @@ app.get("/profile/:id/store",async(req,res)=>{
 })
 
 
-
+//item detail for buying item 
 app.get("/:objectid/:buyerid/buy",async(req,res)=>{
     try{
         const check=await LendItem.findById({_id:req.params.objectid});
@@ -208,21 +216,8 @@ app.get("/:objectid/:buyerid/buy",async(req,res)=>{
 
 
 
-app.get("/:objectid/:buyerid/buy",async(req,res)=>{
-    try{
-        const check=await LendItem.findById({_id:req.params.objectid});
-    
-        const borrowdata=await BorrowItem.findById({_id:req.params.buyerid}); 
-        res.render("borrowpage",{record:check,user:buyerdata});
-    }
-    catch(err)
-    {
-        console.log("not found")
-    }
-})
 
-
-//buying items user
+//buying items from lend store
 app.get("/:userid/:objectid/purchased",async(req,res)=>{
    try{
     const userdata=await collection.findById({_id:req.params.userid})
@@ -238,7 +233,8 @@ app.get("/:userid/:objectid/purchased",async(req,res)=>{
                 sellername:objectdata.sellername,
                 sellerphone:objectdata.sellerphone,
                 sellerid:objectdata.sellerid,
-                buyerid:userdata._id
+                buyerid:userdata._id,
+                status:"sold"
 
             }
             await BorrowItem.insertMany([data])
@@ -312,17 +308,12 @@ app.get("/:id/:name/borrowstore/return",async(req,res)=>{
                 console.log(err);
         }
         async function run() {
-            // Delete the document by its _id
+            // Delete the document by its 
             await BorrowItem.deleteOne({name:req.params.name});
           }     
           run();
           res.redirect('back');                                                                            //used to refresh the page
     }
-})
-
-
-app.get("/search",()=>{
-    res.render("search");
 })
 
 
