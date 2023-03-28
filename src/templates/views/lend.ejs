@@ -25,11 +25,11 @@
     <form action="/profile/:<%=user._id%>/lend" method="post" id="form_lend" >
         <input name="name" type="text"  placeholder="objectname" required/>
         <input  name="price" type="text"  placeholder="Amount" required/>
-        <input name="time"  type="text" placeholder="time duration" required/>
+        <input name="time"  type="date" placeholder="time duration" required/>
         <input name="username" type="checkbox" value="<%=user.name%>" required/>
         <input name="userphone" type="checkbox" value="<%=user.phone%>" required/>
         <input name="userid" type="checkbox" value="<%=user._id%>" required/>
-        <button type="submit" onclick="openPopup()">lend your item</button>
+        <button id="btn" type="submit" onclick="openPopup()">lend your item</button>
         <div class="popup" id="popup">
             <i class="fa-solid fa-check"></i>
     
@@ -42,7 +42,7 @@
       </form>
       
 
-
+   
 </body>
 </html>
 
@@ -55,12 +55,13 @@
  <script type="text/javascript">
    
     let popup = document.getElementById("popup");
-
+    
     function openPopup(){
         popup.classList.add("open-popup")
     }
     function closePopup(){
         popup.classList.remove("open-popup")
+        document.getElementById("form_lend").reset();
     }
   
 </script>

@@ -164,7 +164,7 @@ app.post("/profile/:id/lend",async(req,res)=>{
             sellername:req.body.username,
             sellerphone:req.body.userphone,
             sellerid:req.body.userid,
-            status:"available"
+            status:"Available"
         }
         
         await LendItem.insertMany([data])
@@ -233,8 +233,9 @@ app.get("/:userid/:objectid/purchased",async(req,res)=>{
                 sellername:objectdata.sellername,
                 sellerphone:objectdata.sellerphone,
                 sellerid:objectdata.sellerid,
+                status:"not available",
                 buyerid:userdata._id,
-                status:"sold"
+               
 
             }
             await BorrowItem.insertMany([data])
@@ -251,11 +252,18 @@ app.get("/:userid/:objectid/purchased",async(req,res)=>{
    catch(err){
     console.log(err)
    } 
-   async function run() {
-    await LendItem.deleteOne({ _id:req.params.objectid});
-  }
+
+   const filter = {_id:req.params.objectid };
+   const update = { status:"Not Available" };
+   const doc = await LendItem.findOneAndUpdate(filter, update, {
+    new: true
+  });
+
+//    async function run() {
+//     await LendItem.deleteOne({ _id:req.params.objectid});
+//   }
   
-  run();
+//   run();
   const userdata=await collection.findById({_id:req.params.userid})
   res.render("home2",{user:userdata})
 })
@@ -292,26 +300,36 @@ app.get("/:id/:name/borrowstore/return",async(req,res)=>{
     {
         try{
            
-            const data={
-                name:object.name,
-                price:object.price,
-                time:object.time,
-                sellername:object.sellername,
-                sellerphone:object.sellerphone,
-                sellerid:object.sellerid,
+            // const data={
+            //     name:object.name,
+            //     price:object.price,
+            //     time:object.time,
+            //     sellername:object.sellername,
+            //     sellerphone:object.sellerphone,
+            //     sellerid:object.sellerid,
               
-            }
-            await LendItem.insertMany([data]);
+            // }
+            // await LendItem.insertMany([data]);
+            const filter = {name:req.params.name };
+            const update = { status:"Available" };
+            const doc = await LendItem.findOneAndUpdate(filter, update, {
+            new: true
+           });
             
         }
         catch(err){
                 console.log(err);
         }
+
+        
         async function run() {
             // Delete the document by its 
             await BorrowItem.deleteOne({name:req.params.name});
           }     
           run();
+
+       
+
           res.redirect('back');                                                                            //used to refresh the page
     }
 })

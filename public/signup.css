@@ -222,3 +222,13 @@
       justify-content: center;
     }
   }
+
+
+  
+#show{
+  position:absolute;
+  left: 60%;
+  
+  top:120px;
+  color:#f53677;
+}

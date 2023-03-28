@@ -4,7 +4,7 @@ const BorrowingSchema=new mongoose.Schema({
   
     name:String,
     price:Number,
-    time:Number,
+    time:Date,
     sellername:String,
     sellerphone:String,
     sellerid:String,

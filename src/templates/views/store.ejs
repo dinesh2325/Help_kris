@@ -7,8 +7,10 @@
     <title>Document</title>
 </head>
 <body>
+     <h1>categories</h1>
 
     <h1>!!!!!!!!!welcome <%=user.name%>!!!!!!</h1>
+    <input type="text" name="" id="searchbar" placeholder="Enter object name....">
     <table>
         <tr>
             <th scope="col">
@@ -33,15 +35,18 @@
         <tbody>
             <% if(record.length>0){%>
             <%record.forEach(function(element){%>
+                <%if(element.sellername!=user.name){%>
                 <tr>
                     <td><%=element.name%></td>
                     <td><%=element.price%></td>
-                    <td><%=element.time%></td>
+                    <td><%=element.status%></td>
                     <td><%=element.sellername%></td>
                     <td><%=element.sellerphone%></td>
+                    <%if(element.status==="Available"){%>
                     <td><a href="/<%=element._id%>/<%=user._id%>/buy">BUY</a></td>
+                    <%}%>
                     </tr>    
-                    
+                <%}%> 
                     
                 <%})%>
                 <%}%>
