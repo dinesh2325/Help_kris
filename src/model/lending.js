@@ -7,7 +7,7 @@ const LendingSchema=new mongoose.Schema({
         required:true
     },
     price:Number,
-    time:Number,
+    time:Date,
     sellername:String,
     sellerphone:String,
     sellerid:String,
