@@ -68,7 +68,7 @@ app.post("/signup",async(req,res)=>{
         phone:req.body.phone
     }
     
-    const userExist = await collection.exists({ email:req.body.email });
+     const userExist = await collection.exists({ email:req.body.email });
 
      if (userExist){
         return res.render("signup",{success:'email is already in use'});            //user already exist or not 
@@ -120,11 +120,11 @@ app.post("/login",async(req,res)=>{
 
 
 
-app.get("/home2",(req,res)=>{
+// app.get("/home2",(req,res)=>{
         
-        res.render("home2");
+//         res.render("home2");
 
-})
+// })
 
 
 
@@ -164,7 +164,8 @@ app.post("/profile/:id/lend",async(req,res)=>{
             sellername:req.body.username,
             sellerphone:req.body.userphone,
             sellerid:req.body.userid,
-            status:"Available"
+            status:"Available",
+            category:req.body.cat,
         }
         
         await LendItem.insertMany([data])
@@ -334,7 +335,18 @@ app.get("/:id/:name/borrowstore/return",async(req,res)=>{
     }
 })
 
-
+//displaying category
+app.get("/category/:userid/:categoryname",async(req,res)=>{
+    try{
+           const data=await LendItem.find({category:req.params.categoryname})  
+           const buyerdata=await collection.findById({_id:req.params.userid}); 
+           res.render("category",{record:data,user:buyerdata});
+    }
+    catch(err){
+        console.log(err);
+    }
+    
+})
 
 
 //for chat option

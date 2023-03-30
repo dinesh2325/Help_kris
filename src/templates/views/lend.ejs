@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="/css/style.css"> -->
 
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"> -->
 	<link rel="stylesheet" type="text/css" href="/pop_success.css">
+    
     <title>Document</title>
 </head>
 <body>
@@ -18,15 +19,20 @@
 <html>
 <body>
 
-     
+     <div>
+        <div id="Sender" val ></div>
+        <div id=""></div>
+        <div></div>
+     </div>
     
 	
 
     <form action="/profile/:<%=user._id%>/lend" method="post" id="form_lend" >
+        <input name="cat" type="text"  placeholder="category" required/>
         <input name="name" type="text"  placeholder="objectname" required/>
         <input  name="price" type="text"  placeholder="Amount" required/>
         <input name="time"  type="date" placeholder="time duration" required/>
-        <input name="username" type="checkbox" value="<%=user.name%>" required/>
+        <input name="username" type="checkbox" id="Name" value="<%=user.name%>" required/>
         <input name="userphone" type="checkbox" value="<%=user.phone%>" required/>
         <input name="userid" type="checkbox" value="<%=user._id%>" required/>
         <button id="btn" type="submit" onclick="openPopup()">lend your item</button>
@@ -40,6 +46,7 @@
             </div>
         </div>
       </form>
+    
       
 
    
@@ -55,17 +62,27 @@
  <script type="text/javascript">
    
     let popup = document.getElementById("popup");
+
     
-    function openPopup(){
-        popup.classList.add("open-popup")
+    
+    function openPopup(){ 
+    popup.classList.add("open-popup")
     }
     function closePopup(){
         popup.classList.remove("open-popup")
         document.getElementById("form_lend").reset();
     }
+
   
 </script>
 
+
+
+
 </body>
+
+
+
+
 </html>
 
