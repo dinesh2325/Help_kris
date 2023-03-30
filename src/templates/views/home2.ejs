@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    
+    <link rel="stylesheet" href="/home2.css">
     <title>Document</title>
 </head>
 <body>
@@ -13,7 +14,7 @@
     
     
     <div class="dropdown">
-       <button class="dropbtn"><%=user.name%></button>               <!-- for displaying current user -->
+       <button class="dropbtn"><%=user.name%></button>              <!-- for displaying current user -->
     
         <div class="dropdown-content">
         
@@ -23,13 +24,20 @@
              
         <a href="/home">Logout</a>
         </div>
-      </div>
+      </div> 
  
       <button type="button" class="btn btn-secondary btn-lg"><a href="/profile/<%=user._id%>/store">borrow</a></button>
       <button type="button" class="btn btn-secondary btn-lg"><a href="/profile/<%=user._id%>/lend">lend now</a></button> 
 
 
-
+      <a href="">
+        <span>Lend</span>
+        <span>Text</span>
+    </a>
+    <a href="">
+        <span>Borrow</span>
+        <!-- <span>Text</span>
+    </a>
 
 
 

@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h1>HEllo this is category</h1>
+
+    <table>
+        <tr>
+            <th scope="col">
+                objectname
+            </th>
+            <th scope="col">
+                objectprice
+            </th>
+            <th scope="col">
+                status
+            </th>
+            <th scope="col">
+                seller name
+            </th>
+            <th scope="col">
+                seller phone
+            </th>
+            <th scope="col">
+                borrow
+            </th>
+        </tr>
+        <tbody>
+            <% if(record.length>0){%>
+                <%record.forEach(function(element){%>
+                    <tr>
+                        <td><%=element.name%></td>
+                        <td><%=element.price%></td>
+                        <td><%=element.status%></td>
+                        <td><%=element.sellername%></td>
+                        <td><%=element.sellerphone%></td>
+                        <td><a href="/<%=element._id%>/<%=user._id%>/buy">BUY</a></td>
+                        </tr> 
+                        <%})%>
+        <%}%> 
+        </tbody>
+    </table>
+</body>
+</html>
+
+
+<!-- <% if(record.length>0){%>
+    <%record.forEach(function(element){%>
+        <%if(element.sellername!=user.name){%>
+        <tr>
+            <td><%=element.name%></td>
+            <td><%=element.price%></td>
+            <td><%=element.status%></td>
+            <td><%=element.sellername%></td>
+            <td><%=element.sellerphone%></td>
+            <%if(element.status==="Available"){%>
+            <td><a href="/<%=element._id%>/<%=user._id%>/buy">BUY</a></td>
+            <%}%>
+            </tr>    
+        <%}%> 
+        
+            
+        <%})%>
+        <%}%> -->
