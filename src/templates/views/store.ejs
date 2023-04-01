@@ -15,8 +15,10 @@
       <a href="/category/<%=user._id%>/Books"> Books</a>
 
     <h1>!!!!!!!!!welcome <%=user.name%>!!!!!!</h1>
-    <input type="text" name="" id="searchbar" placeholder="Enter object name....">
-    <table>
+    <input type="text"  id="searchbar" placeholder="Name....."  onkeyup="searchfun()">
+    <input type="text"  id="filterbar" placeholder="price....."  onkeyup="searchfun2()">
+
+    <table id="mytable">
         <tr>
             <th scope="col">
                 objectname
@@ -37,7 +39,7 @@
                 borrow
             </th>
         </tr>
-        <tbody>
+        
             <% if(record.length>0){%>
             <%record.forEach(function(element){%>
                 <%if(element.sellername!=user.name){%>
@@ -52,10 +54,67 @@
                     <%}%>
                     </tr>    
                 <%}%> 
-                    
                 <%})%>
                 <%}%>
-        </tbody>
+    
     </table>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        
+
+        function searchfun(){
+            let filter=document.getElementById("searchbar").value.toUpperCase();
+            let myTable=document.getElementById("mytable");
+           
+            let tr= myTable.getElementsByTagName('tr');
+            
+            for(var i=0;i<tr.length;i++){
+                let td=tr[i].getElementsByTagName('td')[0];
+                if(td){
+                    let textvalue=td.textContent || td.innerHTML;
+                    if(textvalue.toUpperCase().indexOf(filter)> -1){
+                        tr[i].style.display="";
+
+                    }else{
+                        tr[i].style.display="none"
+                    }
+                }
+            }
+        }
+
+
+        function searchfun2(){
+            let filter=document.getElementById("filterbar").value.toUpperCase();
+            let myTable=document.getElementById("mytable");
+           
+            let tr= myTable.getElementsByTagName('tr');
+            
+            for(var i=0;i<tr.length;i++){
+                let td=tr[i].getElementsByTagName('td')[1];
+                if(td){
+                    let textvalue=td.textContent || td.innerHTML;
+                    if(textvalue.toUpperCase().indexOf(filter)> -1){
+                        tr[i].style.display="";
+
+                    }else{
+                        tr[i].style.display="none"
+                    }
+                }
+            }
+        }
+    </script>
+
+
+
+
 </body>
 </html>
