@@ -102,8 +102,8 @@ app.post("/login",async(req,res)=>{
         if(check.password===req.body.password)
         {
             try{
-                const userData=await collection.findById({_id:req.session.user_id})
-                res.render("home2",{user:userData});
+                // const userData=await collection.findById({_id:req.session.user_id})
+                res.render("home2",{user:check});
             }
             catch(err){
                return  res.render("login",{message:'invalid user data'});
@@ -133,6 +133,7 @@ app.get("/profile/:id",async(req,res)=>{
     try{
         const userData=await collection.findById({_id:req.params.id})
         res.render("profile",{user:userData});
+        
     }
     catch(err){
         res.render(err);
