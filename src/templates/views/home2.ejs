@@ -5,45 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    
     <link rel="stylesheet" href="/home2.css">
     <title>Document</title>
 </head>
 <body>
-   
     
-    
-    <div class="dropdown">
-       <button class="dropbtn"><%=user.name%></button>              <!-- for displaying current user -->
-    
-        <div class="dropdown-content">
-        
        
-        <a href="/profile/<%=user._id%>">profile</a>
+   
+   
+
+    
+    
+    
+
+            <a id="usr"><%=user.name%></a>
+        
+           
+        <a href="/profile/<%=user._id%>" id="prof">Profile</a>
       
              
-        <a href="/home">Logout</a>
+        <a href="/home" id="log">Logout</a>
         </div>
       </div> 
  
-      <button type="button" class="btn btn-secondary btn-lg"><a href="/profile/<%=user._id%>/store">borrow</a></button>
-      <button type="button" class="btn btn-secondary btn-lg"><a href="/profile/<%=user._id%>/lend">lend now</a></button> 
+      <a href="/profile/<%=user._id%>/store" id="borrowbtn">Borrow</a>
+      <a href="/profile/<%=user._id%>/lend" id="lendbtn">Lend Item </a> 
+             
+   
 
 
-      <a href="">
-        <span>Lend</span>
-        <span>Text</span>
-    </a>
-    <a href="">
-        <span>Borrow</span>
-        <!-- <span>Text</span>
-    </a>
+      <!-- <script type="text/javascript">
+      const buttons= document.querySelectorAll('a');
+      buttons.forEach(btn=>{
+          btn.addEventListener('click',function(e){
+              let x=e.clientX-e.target.offsetLeft;
+              let y=e.clientY-e.target.offsetTop;
 
-
-
-    
-
-
+              let ripples= document.createElement('span');
+              ripples.style.left=x+'px';
+              ripples.style.top=y+'px';
+              this.appendChild(ripples);
+              setTimeout(()=>{
+                  ripples.remove()
+              },1000);
+          })
+      }) -->
+  
+</script>
 
 
 
@@ -55,8 +63,8 @@
 
 
 
-   <script src="../jq/jquery.js" type="text/javascript"></script>
-   <script src="../js/bootstrap.js" type="text/javascript"></script>
+   <!-- <script src="../jq/jquery.js" type="text/javascript"></script>
+   <script src="../js/bootstrap.js" type="text/javascript"></script> -->
 
 </body>
 </html>
