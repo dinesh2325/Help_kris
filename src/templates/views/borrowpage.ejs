@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/borrowpage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
 </head>
 <body>
-        <h3>seller detail</h3>
+        <!-- <h3>seller detail</h3>
         <div>
            name: <%=record.sellername%>
             <div>
             contact number: <%=record.sellerphone%>
             </div>
            <div>
-            <a href="/localhost:5000/chat">chat</a>
+            <a href="/localhost:5000">chat</a>
            </div>
         </div>
 
@@ -28,7 +30,64 @@
         </div>
        
         <br>
-    
-        <a href="/<%=user._id%>/<%=record._id%>/purchased">would you like to buy,please conform it after contact with seller</a>
+      <a href="/<%=user._id%>/<%=record._id%>/purchased">would you like to buy,please conform it after contact with seller</a> -->
+        
+        <div class="container">
+          <div class="card">
+            <div class="circle">
+              <h2>Seller Detail</h2>
+            </div>
+            <div class="content">
+             <h3>Name    : <%=record.sellername%></h3>
+             <hr>
+             <h3>Phone  : <%=record.sellerphone%></h3>
+             <hr>
+             <h3>Year   : -----</h3>
+             <hr>
+             <h3>Gender : -----</h3>
+             <hr>
+             <h3>Hostle : -----</h3>
+             <hr>
+            </div>
+            <!-- <a href="">chat</a>  -->
+          </div>
+          <div class="card">
+            <div class="circle">
+              <h2>Item Detail</h2>
+            </div>
+            <div class="content">
+              <h3>Item : <%=record.name%></h3>
+              <hr>
+              <h3>Price : <%=record.price%></h3>
+              <hr>
+              <h3>Category : <%=record.category%></h3>
+              <hr>
+              
+            </div>
+            <!-- <a href="">chat</a>  -->
+          </div>
+        </div>
+
+           <div class="chaticon">
+            <a href="/localhost:5000"><i class="fa fa-whatsapp" style="font-size:48px;color:rgb(0, 255, 106)"></i></a> 
+           </div>
+           
+
+           <!-- for button -->
+           <div class="container2"  onclick="window.location.href='/<%=user._id%>/<%=record._id%>/purchased';" >
+            <div class="center">
+              <button class="btn">
+               
+                <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+                  <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+                  <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+                </svg>
+                <span>Click to conform!</span>
+                
+              </button>
+            </div>
+          </div>
+           
+          
 </body>
 </html>

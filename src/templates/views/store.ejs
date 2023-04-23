@@ -1,112 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/store.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-     <h1>categories</h1>
-     <a href="/category/<%=user._id%>/Electronics"> Electronics</a>
-     <a href="/category/<%=user._id%>/Stationary"> Stationary</a>
-     <a href="/category/<%=user._id%>/Clothing"> Clothing</a>
-      <a href="/category/<%=user._id%>/Bicycle"> Bicycle</a>
-      <a href="/category/<%=user._id%>/Books"> Books</a>
 
-    <h1>!!!!!!!!!welcome <%=user.name%>!!!!!!</h1>
-    <input type="text"  id="searchbar" placeholder="Name....."  onkeyup="searchfun()">
-    <input type="text"  id="filterbar" placeholder="price....."  onkeyup="searchfun2()">
+    <section id="navbar_section">
+        <div class="nav">
+            <ul>
+                <li>
+                    <a href="/category/<%=user._id%>/Electronics"> Electronics</a>
+                </li>
+                <li>
+                    <a href="/category/<%=user._id%>/Stationary"> Stationary</a>
+                </li>
+                <li>
+                    <a href="/category/<%=user._id%>/Clothing"> Clothing</a>
+                </li>
+                <li>
+                    <a href="/category/<%=user._id%>/Books"> Books</a>
+                </li>
+            </ul>
 
-    <table id="mytable">
-        <tr>
-            <th scope="col">
-                objectname
-            </th>
-            <th scope="col">
-                objectprice
-            </th>
-            <th scope="col">
-                returnDate
-            </th>
-            <th scope="col">
-                seller name
-            </th>
-            <th scope="col">
-                seller phone
-            </th>
-            <th scope="col">
-                borrow
-            </th>
-        </tr>
-        
-            <% if(record.length>0){%>
-            <%record.forEach(function(element){%>
-                <%if(element.sellername!=user.name){%>
+        </div>
+    </section>
+
+    <!-- filterbar -->
+    <label for="filter">Price filter:</label>
+
+    <select name="filter" id="filterbar" onchange="searchfun2()">
+        <option value="">Price Filter</option>
+        <option value="100">less than 100</option>
+        <option value="500">less than 500</option>
+        <option value="1000">less than 1000</option>
+        <option value="1500">less than 1500</option>
+        <option value="2000">less than 2000</option>
+        <option value="2500">less than 2500</option>
+        <option value="3000">less than 3000</option>
+    </select>
+
+
+    <!-- for search bar -->
+    <div class="div2">
+        <div class="box">
+            <input type="text" id="searchbar" class="search" placeholder="Search Here..." onkeyup="searchfun()">
+            <button class="button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+    </div>
+
+
+
+
+    <!-- table for item -->
+    <div class="div3">
+        <table id="mytable" class="content-table">
+            <thead>
                 <tr>
-                    <td><%=element.name%></td>
-                    <td><%=element.price%></td>
-                    <td><%=element.status%></td>
-                    <td><%=element.sellername%></td>
-                    <td><%=element.sellerphone%></td>
-                    <%if(element.status==="Available"){%>
-                    <td><a href="/<%=element._id%>/<%=user._id%>/buy">BUY</a></td>
-                    <%}%>
-                    </tr>    
-                <%}%> 
-                <%})%>
-                <%}%>
-    
-    </table>
-
-
-
-
-
-
+                    <th>Object Name</th>
+                    <th>Price</th>
+                    <th>Availability</th>
+                    <th>Buy</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(record.length>0){%>
+                    <%record.forEach(function(element){%>
+                        <%if(element.sellername!=user.name){%>
+                            <tr>
+                                <td>
+                                    <%=element.name%>
+                                </td>
+                                <td>
+                                    <%=element.price%>
+                                </td>
+                                <td>
+                                    <%=element.status%>
+                                </td>
+                                <%if(element.status==="Available"){%>
+                                    <td><a href="/<%=element._id%>/<%=user._id%>/buy">BUY</a></td>
+                                    <%}%>
+                            </tr>
+                            <%}%>
+                                <%})%>
+                                    <%}%>
+            </tbody>
+        </table>
+    </div>
 
 
 
 
     <script>
-        
+        // function for search bar
+        function searchfun() {
+            let filter = document.getElementById("searchbar").value.toUpperCase();
+            let myTable = document.getElementById("mytable");
 
-        function searchfun(){
-            let filter=document.getElementById("searchbar").value.toUpperCase();
-            let myTable=document.getElementById("mytable");
-           
-            let tr= myTable.getElementsByTagName('tr');
-            
-            for(var i=0;i<tr.length;i++){
-                let td=tr[i].getElementsByTagName('td')[0];
-                if(td){
-                    let textvalue=td.textContent || td.innerHTML;
-                    if(textvalue.toUpperCase().indexOf(filter)> -1){
-                        tr[i].style.display="";
+            let tr = myTable.getElementsByTagName('tr');
 
-                    }else{
-                        tr[i].style.display="none"
+            for (var i = 0; i < tr.length; i++) {
+                let td = tr[i].getElementsByTagName('td')[0];
+                if (td) {
+                    let textvalue = td.textContent || td.innerHTML;
+                    if (textvalue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+
+                    } else {
+                        tr[i].style.display = "none"
                     }
                 }
             }
         }
 
 
-        function searchfun2(){
-            let filter=document.getElementById("filterbar").value.toUpperCase();
-            let myTable=document.getElementById("mytable");
-           
-            let tr= myTable.getElementsByTagName('tr');
-            
-            for(var i=0;i<tr.length;i++){
-                let td=tr[i].getElementsByTagName('td')[1];
-                if(td){
-                    let textvalue=td.textContent || td.innerHTML;
-                    if(textvalue.toUpperCase().indexOf(filter)> -1){
-                        tr[i].style.display="";
 
-                    }else{
-                        tr[i].style.display="none"
+    //function for filterbar
+        function searchfun2() {
+            let filter = document.getElementById("filterbar").value;
+            let myTable = document.getElementById("mytable");
+
+            let tr = myTable.getElementsByTagName('tr');
+           console.log(filter);
+            for (var i = 0; i < tr.length; i++) {
+                let td = tr[i].getElementsByTagName('td')[1];
+                if (td) {
+                    let textvalue = td.textContent || td.innerHTML;
+                    if (Number(textvalue)<=Number(filter)){
+                        tr[i].style.display = "";
+
+                    } else {
+                        tr[i].style.display = "none"
+
                     }
                 }
             }
@@ -117,4 +149,5 @@
 
 
 </body>
+
 </html>

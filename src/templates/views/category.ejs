@@ -1,70 +1,92 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/store.css">
+
     <title>Document</title>
 </head>
+
 <body>
-    
 
-    <h1>HEllo this is category</h1>
+    <!-- filterbar -->
+   
 
-    <table>
-        <tr>
-            <th scope="col">
-                objectname
-            </th>
-            <th scope="col">
-                objectprice
-            </th>
-            <th scope="col">
-                status
-            </th>
-            <th scope="col">
-                seller name
-            </th>
-            <th scope="col">
-                seller phone
-            </th>
-            <th scope="col">
-                borrow
-            </th>
-        </tr>
-        <tbody>
-            <% if(record.length>0){%>
-                <%record.forEach(function(element){%>
-                    <tr>
-                        <td><%=element.name%></td>
-                        <td><%=element.price%></td>
-                        <td><%=element.status%></td>
-                        <td><%=element.sellername%></td>
-                        <td><%=element.sellerphone%></td>
-                        <td><a href="/<%=element._id%>/<%=user._id%>/buy">BUY</a></td>
-                        </tr> 
-                        <%})%>
-        <%}%> 
-        </tbody>
-    </table>
+    <select name="filter" id="filterbar" onchange="searchfun2()">
+        <option name="choose">Price Filter</option>
+        <option value="100">less than 100</option>
+        <option value="500">less than 500</option>
+        <option value="1000">less than 1000</option>
+        <option value="1500">less than 1500</option>
+        <option value="2000">less than 2000</option>
+        <option value="200">less than 2500</option>
+        <option value="3000">less than 3000</option>
+    </select>
+
+    <div class="div3">
+        <h1>
+            <%=record.name%>
+        </h1>
+        <table id="mytable" class="content-table">
+            <thead>
+                <tr>
+                    <th>Object Name</th>
+                    <th>Price</th>
+                    <th>Availability</th>
+                    <th>Buy</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(record.length>0){%>
+                    <%record.forEach(function(element){%>
+                        <%if(element.sellername!=user.name){%>
+                            <tr>
+                                <td>
+                                    <%=element.name%>
+                                </td>
+                                <td>
+                                    <%=element.price%>
+                                </td>
+                                <td>
+                                    <%=element.status%>
+                                </td>
+                                <%if(element.status==="Available"){%>
+                                    <td><a href="/<%=element._id%>/<%=user._id%>/buy">BUY</a></td>
+                                    <%}%>
+                            </tr>
+                            <%}%>
+                                <%})%>
+                                    <%}else{%>
+                                        <tr>
+                                            <td>No Item Available</td>
+                                        </tr>
+                                        <%}%>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        //function for filterbar
+        function searchfun2() {
+            let filter = document.getElementById("filterbar").value;
+            let myTable = document.getElementById("mytable");
+
+            let tr = myTable.getElementsByTagName('tr');
+            console.log(filter);
+            for (var i = 0; i < tr.length; i++) {
+                let td = tr[i].getElementsByTagName('td')[1];
+                if (td) {
+                    let textvalue = td.textContent || td.innerHTML;
+                    if (Number(textvalue) <= Number(filter)) {
+                        tr[i].style.display = "";
+
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        } 
+    </script>
+
 </body>
-</html>
-
-
-<!-- <% if(record.length>0){%>
-    <%record.forEach(function(element){%>
-        <%if(element.sellername!=user.name){%>
-        <tr>
-            <td><%=element.name%></td>
-            <td><%=element.price%></td>
-            <td><%=element.status%></td>
-            <td><%=element.sellername%></td>
-            <td><%=element.sellerphone%></td>
-            <%if(element.status==="Available"){%>
-            <td><a href="/<%=element._id%>/<%=user._id%>/buy">BUY</a></td>
-            <%}%>
-            </tr>    
-        <%}%> 
-        
-            
-        <%})%>
-        <%}%> -->

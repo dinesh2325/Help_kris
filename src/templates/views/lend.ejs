@@ -1,88 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="/css/style.css"> -->
-
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"> -->
-	<link rel="stylesheet" type="text/css" href="/pop_success.css">
-    
+    <link rel="stylesheet" type="text/css" href="/pop_success.css">
+    <link rel="stylesheet" type="text/css" href="/lend.css">
     <title>Document</title>
 </head>
-<body>
-   
-     
-    <!DOCTYPE html>
-<html>
-<body>
 
-     <div>
-        <div id="Sender" val ></div>
-        <div id=""></div>
-        <div></div>
-     </div>
+<body>
     
-	
 
-    <form action="/profile/:<%=user._id%>/lend" method="post" id="form_lend" >
-        <input name="cat" type="text"  placeholder="category" required/>
-        <input name="name" type="text"  placeholder="objectname" required/>
-        <input  name="price" type="text"  placeholder="Amount" required/>
-        <input name="time"  type="date" placeholder="time duration" required/>
-        <input name="username" type="checkbox" id="Name" value="<%=user.name%>" required/>
-        <input name="userphone" type="checkbox" value="<%=user.phone%>" required/>
-        <input name="userid" type="checkbox" value="<%=user._id%>" required/>
-        <button id="btn" type="submit" onclick="openPopup()">lend your item</button>
-        <div class="popup" id="popup">
-            <i class="fa-solid fa-check"></i>
-    
-            <div class="content">
-                <h2>Item lended Successfully</h2>
-                <p>Thank you for lending item!</p>
-                <button onclick="closePopup()">OK</button>
+    <form action="/profile/:<%=user._id%>/lend" method="post" id="form_lend">
+            <input name="cat" type="text" placeholder="category" required />
+            <input name="name" type="text" placeholder="objectname" required />
+            <input name="price" type="text" placeholder="Amount" required />
+            <input name="time" type="date" placeholder="time duration" required />
+            <input name="username" type="checkbox" id="Name" value="<%=user.name%>" required />
+            <input name="userphone" type="checkbox" value="<%=user.phone%>" required />
+            <input name="userid" type="checkbox" value="<%=user._id%>" required />
+            <button id="btn" type="submit" onclick="openPopup()">lend your item</button>
+            <div class="popup" id="popup">
+                <i class="fa-solid fa-check"></i>
+
+                <div class="content">
+                    <h2>Item lended Successfully</h2>
+                    <p>Thank you for lending item!</p>
+                    <button onclick="closePopup()">OK</button>
+                </div>
             </div>
-        </div>
-      </form>
-    
-      
-
-   
-</body>
-</html>
-
-   
-   <script src="../jq/jquery.js" type="text/javascript"></script>
-   <script src="../js/bootstrap.js" type="text/javascript"></script>
-
-
-
- <script type="text/javascript">
-   
-    let popup = document.getElementById("popup");
-
-    
-    
-    function openPopup(){ 
-    popup.classList.add("open-popup")
-    }
-    function closePopup(){
-        popup.classList.remove("open-popup")
-        document.getElementById("form_lend").reset();
-    }
-
+        </form>
+    </div>
+</div>
   
-</script>
 
 
+    <script type="text/javascript">
 
+        let popup = document.getElementById("popup");
+        function openPopup() {
+            popup.classList.add("open-popup")
+        }
+        function closePopup() {
+            popup.classList.remove("open-popup")
+            document.getElementById("form_lend").reset();
+        }
 
+    </script>
 </body>
-
-
-
-
 </html>
 
