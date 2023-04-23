@@ -301,17 +301,6 @@ app.get("/:id/:name/borrowstore/return",async(req,res)=>{
     if(object)
     {
         try{
-           
-            // const data={
-            //     name:object.name,
-            //     price:object.price,
-            //     time:object.time,
-            //     sellername:object.sellername,
-            //     sellerphone:object.sellerphone,
-            //     sellerid:object.sellerid,
-              
-            // }
-            // await LendItem.insertMany([data]);
             const filter = {name:req.params.name };
             const update = { status:"Available" };
             const doc = await LendItem.findOneAndUpdate(filter, update, {
@@ -352,7 +341,7 @@ app.get("/category/:userid/:categoryname",async(req,res)=>{
 
 //for chat option
 const http=require('http').createServer(app)
-app.get("/localhost:5000/chat",(req,res)=>{
+app.get("/localhost:5000",(req,res)=>{
     res.sendFile(__dirname+'/index.html');
 })
 

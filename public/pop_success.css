@@ -3,10 +3,10 @@
 	margin: 0;
 	box-sizing:border-box;
 }
-body{
-	background: #53304e;
+/* body{
+	background: hotpink;
 	font-family: monospace;
-}
+} */
 button{
 	width: 200px;
 	height: 60px;

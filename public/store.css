@@ -1,0 +1,141 @@
+body{
+    background-color: rgba(85, 77, 88, 0.582);
+}
+.content-table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin:170px 100px 0px 110px;
+    font-size:1.1rem;
+    min-width:1100px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0 0 0 0.15);}
+    .content-table thead tr {
+    background-color:#009879;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+
+.content-table tbody tr {
+    border-bottom: 1px solid white;
+}
+
+.content-table tbody tr:nth-of-type(even){
+    background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type{
+    border-bottom: 2px solid #009879;
+}
+
+
+/* for search bar */
+.box{
+
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top:10%;
+    left:10%;
+    transform:translate(0%,50%);
+    background-color: #2f3640; ;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px ;
+ 
+}
+.search{
+    outline:none;
+    border: none;
+    background:none;
+    font-size: 18px;
+    float:left;
+    padding:0px;
+    color:#fff;
+    transition: 0.8s;
+    line-height:40px;
+    width:0px;
+
+}
+
+.button{
+   background-color:rgba(85, 77, 88, 0.582);
+   float:right;
+   text-decoration: none;
+   width:40px;
+   height:40px;
+   line-height:40px;
+   text-align: center;
+   border-radius: 50%;
+
+}
+
+.box:hover > .search{
+    width:300px;
+    padding-left:0 6px;
+
+}
+
+.box:hover > .button{
+    background-color: white;
+    /* height:2.2rem;
+    width:2.2rem;
+    margin-left:2px; */
+}
+
+
+
+/* navbar */
+
+.nav{
+    position:absolute;
+    top:0%;
+    left:0%;  
+    background:#009879;
+    height: 60px;
+    width:100%;  
+}
+
+.nav ul{
+     margin-left:20px;
+}
+
+.nav ul li{
+    display:inline-block;
+    line-height: 30px;
+    margin-left:20px;
+    margin-right: 20px;
+}
+
+.nav ul li a{
+    margin-left:40px;
+    padding: 7px 60px;
+    border-radius:3px ;
+    color:white;
+    text-decoration: none;
+    font-size:17px;
+    text-transform: uppercase;
+}
+
+a:hover{
+    background:#1b9bff;
+    transition: .5s;
+}
+
+
+#filterbar{
+    color: rgba(8, 0, 124, 0.432);
+    position: absolute;
+    top:130px;
+    right:180px;
+    height: 30px;;
+    width:160px;
+}

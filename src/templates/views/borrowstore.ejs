@@ -3,52 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="/store.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
 
-    <h1>!!!!!!!!!welcome <%=user.name%>!!!!!!</h1>
-    <table>
-        <tr>
-            <th scope="col">
-                objectname
-            </th>
-            <th scope="col">
-                objectprice
-            </th>
-            <th scope="col">
-                returnDate
-            </th>
-            <th scope="col">
-                seller name
-            </th>
-            <th scope="col">
-                seller phone
-            </th>
-            
-            <th scope="col">
-                return item
-            </th>
-           
-        </tr>
-        <tbody>
-            <% if(record.length>0){%>
-            <%record.forEach(function(element){%>
+    <div class="div3">
+        <table id="mytable" class="content-table">
+            <thead>
                 <tr>
-                    <td><%=element.name%></td>
-                    <td><%=element.price%></td>
-                    <td><%=element.time%></td>
-                    <td><%=element.sellername%></td>
-                    <td><%=element.sellerphone%></td>
-                    <td><a href="/<%=element.buyerid%>/<%=element.name%>/borrowstore/return">return now</a></td>
-                    </tr>    
-                    
-                    
-                <%})%>
-                <%}%>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>returnDate</th>
+                    <th>seller name</th>
+                    <th>seller phone</th> 
+                    <th>return item</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(record.length>0){%>
+                    <%record.forEach(function(element){%>
+                        <%if(element.sellername!=user.name){%>
+                            <tr>
+                                <td>
+                                    <%=element.name%>
+                                </td>
+                                <td>
+                                    <%=element.price%>
+                                </td>
+                                <td>
+                                    <%=element.time%>
+                                </td>
+                                <td>
+                                    <%=element.sellername%>
+                                </td>
+                                <td>
+                                    <%=element.sellerphone%>
+                                </td>
+                                <td><a href="/<%=element.buyerid%>/<%=element.name%>/borrowstore/return">return now</a></td>
                 
-        </tbody>
-    </table>
+                            </tr>
+                            <%}%>
+                                <%})%>
+                                    <%}%>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
