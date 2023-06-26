@@ -9,6 +9,7 @@
   body{
       font-family: 'Poppins', sans-serif;
       overflow: hidden;
+      background-color: #000942;
   }
   
   .wave{
@@ -55,7 +56,7 @@
   
   .login-content h2{
     margin: 15px 0;
-    color: #292727;
+    color:  #e91e63 ;
     text-transform: uppercase;
     font-size: 2.9rem;
   }
@@ -66,7 +67,7 @@
       grid-template-columns: 7% 93%;
       margin: 25px 0;
       padding: 5px 0;
-      border-bottom: 2px solid #d9d9d9;
+      border-bottom: 2px solid #e91e63;
   }
   
   .login-content .input-div.one{
@@ -74,7 +75,7 @@
   }
   
   .i{
-    color: #d9d9d9;
+    color: #f5f1f1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -105,7 +106,7 @@
     bottom: -2px;
     width: 0%;
     height: 2px;
-    background-color: #3866d3;
+    background-color: #32be8f;
     transition: .4s;
   }
   
@@ -127,7 +128,7 @@
   }
   
   .input-div.focus > .i > i{
-    color: #3847d3;
+    color: #32be8f;
   }
   
   .input-div > div > input{
@@ -153,7 +154,7 @@
     display: block;
     text-align: right;
     text-decoration: none;
-    color: #999;
+    color: beige;
     font-size: 0.9rem;
     transition: .3s;
   }
@@ -169,7 +170,7 @@
     border-radius: 25px;
     outline: none;
     border: none;
-    background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+    background-image: linear-gradient(to right, #e57399, #e94f83, #e91e63);
     background-size: 200%;
     font-size: 1.2rem;
     color: #fff;
@@ -232,3 +233,5 @@
   top:120px;
   color:#f53677;
 }
+
+

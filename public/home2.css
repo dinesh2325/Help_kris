@@ -24,32 +24,35 @@ body{
     text-decoration: none;
     letter-spacing: 0.5px;
     color: #fff;
-    position:absolute;
+    position:fixed;
     top: 30%;
     left: 70%;
     font-size: 35px;
     background: linear-gradient(90deg,#755bea,#ff72c0);
     transition-timing-function: ease-in-out;
     transition: transform 0.5s;
-    padding: 35px 72px;
+    padding: 25px 85px 25px 80px;
     margin: 30px 0;
     border-radius: 25px;
+    text-align: center;
 
 }
 #lendbtn{
     text-decoration: none;
     letter-spacing: 0.5px;
     color: #fff;
-    position: absolute;
+    position: fixed;
     top: 50%;
-    left: 68.5%;
+    left: 70%;
     font-size: 35px;
     transition-timing-function: ease-in-out;
     transition: transform 0.5s;
-    padding: 35px 72px;
-    margin: 30px 0;
+    padding: 25px 60px 25px 60px;
+    margin: 25px 0;
     background: linear-gradient(90deg,#0162c8,#55e7fc);
     border-radius: 25px;
+    text-align: center;
+    
 }
 
 #borrowbtn:hover{
@@ -58,7 +61,7 @@ body{
 }
 #lendbtn:hover{
 
-    transform: scale(0.85);
+    transform: scale(1.19);
     
 }
 #prof{
@@ -68,7 +71,7 @@ text-decoration: none;
 position: absolute;
 top: 10%;
 left: 80%;
-font-size: x-large
+font-size: x-large;
 
 }
 
@@ -89,6 +92,41 @@ font-size: x-large;
     top: 10%;
     left: 75%;
     font-size: x-large;
+}
+
+.animate-charcter
+{
+   position: fixed;
+   left: 100px;
+   top: 160px;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  font-family: cursive;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 3s linear infinite;
+  display: inline-block;
+      font-size: 80px;
+      text-align: left;
+    
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
 }
 
 

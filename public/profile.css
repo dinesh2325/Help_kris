@@ -1,0 +1,267 @@
+body{
+    background:url(profile.jpg);
+    
+    background-size: cover;
+   text-align: center;
+}
+/* .lefthalf{
+  background: rgb(84, 15, 188);
+    width: 30%;
+    height: 100vh;
+     
+} */
+        
+/* .envelope {
+  padding: 1em;
+  border: 1em solid transparent;
+  background: linear-gradient(white, white)
+              padding-box,
+              repeating-linear-gradient(-45deg,
+              #f69ec4 0, #ea5293 12.5%,
+              transparent 0, transparent 25%,
+              #7eb4e2 0, #7eb4e2 37.5%,
+              transparent 0, transparent 50%)
+              0 / 5em 5em;
+} */
+  
+
+.register{
+  color: white;
+  position: fixed;
+
+}
+
+
+
+div.main{
+  width: 200px;
+  margin-left: 850px ;
+  margin-top: 50px;
+  
+  
+}
+
+div.register{
+  
+  font-size: 15px;
+  color: rgb(245, 238, 238) ;
+  text-decoration: solid;
+  text-align: left;
+  padding-left: 38px;
+  font-style: italic;
+ 
+}
+h2{
+  text-align: center;
+}
+
+input#name{
+  margin-left: 89px;
+  font-style: italic;
+  width: 300px;
+  border: 1px solid #f0ecf4;
+  border-radius: 12px;
+  outline: 0;
+  padding: 7px;
+  background-color: #f0ebf1;
+  box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);
+}
+
+input#Registration{
+  margin-left: 58px;
+  font-style: italic;
+  width: 300px;
+  border: 1px solid #f0ecf4;
+  border-radius: 12px;
+  outline: 0;
+  padding: 7px;
+  background-color: #f0ebf1;
+  box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);
+}
+input#Phone{
+  margin-left: 95px;
+  font-style: italic;
+  width: 300px;
+  border: 1px solid #f0ecf4;
+  border-radius: 12px;
+  outline: 0;
+  padding: 7px;
+  background-color: #f0ebf1;
+  box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);
+}
+input#Current_Year{
+  
+  font-style: italic;
+  width: 300px;
+  border: 1px solid #f0ecf4;
+  border-radius: 12px;
+  outline: 0;
+  padding: 7px;
+  background-color: #f0ebf1;
+  box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);
+}
+#Year{
+  margin-left: 81px;
+  font-style: italic;
+  width: 300px;
+  border: 1px solid #f0ecf4;
+  border-radius: 12px;
+  outline: 0;
+  padding: 7px;
+  background-color: #f0ebf1;
+  box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);
+}
+#Hostel{
+  margin-left: 123px;
+  font-style: italic;
+  width: 300px;
+  border: 1px solid #f0ecf4;
+  border-radius: 12px;
+  outline: 0;
+  padding: 7px;
+  background-color: #f0ebf1;
+  box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);
+}
+input#Gender{
+  
+  font-style: italic;
+  width: 300px;
+  border: 1px solid #f0ecf4;
+  border-radius: 12px;
+  outline: 0;
+  padding: 7px;
+  background-color: #f0ebf1;
+  box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);
+}
+#Gender{
+  margin-left: 120px;
+  font-style: italic;
+  width: 300px;
+  border: 1px solid #f0ecf4;
+  border-radius: 12px;
+  outline: 0;
+  padding: 7px;
+  background-color: #f0ebf1;
+  box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);
+}
+
+
+
+.fa-lg {
+  position:fixed;
+  left:240px;
+  top: 240px;
+  font-size: 10rem !important;
+  color: white;
+}
+
+.name{
+position: fixed;
+left: 290px;
+  top: 350px;
+  color: #fff;
+
+}
+
+.vl{
+  border-left: 1px solid white;
+  height:620px;
+  position: fixed;
+  top: 60px;
+  left: 600px;
+  
+}
+.bt{
+  position: fixed;
+  left: 165px;
+  top: 500px;
+  text-decoration: none;
+    letter-spacing: 0.5px;
+    color: #fff;
+    font-size: 20px;
+    transition-timing-function: ease-in-out;
+    transition: transform 0.5s;
+    padding: 20px 55px 20px 55px;
+    margin: 25px 0;
+    background: linear-gradient(90deg,#02074e,#0e1bd0);
+    border-radius: 25px;
+    text-align: center;
+    
+  
+}
+.bt:hover{
+
+  transform: scale(1.19);
+  text-decoration: none;
+  color: #fff;
+  
+}
+
+.bt2{
+  position: fixed;
+  left: 165px;
+  top: 400px;
+  text-decoration: none;
+    letter-spacing: 0.5px;
+    color: #fff;
+    font-size: 20px;
+    transition-timing-function: ease-in-out;
+    transition: transform 0.5s;
+    padding: 20px 60px 20px 70px;
+    margin: 25px 0;
+    background: linear-gradient(90deg,#02074e,#0e1bd0);
+    border-radius: 25px;
+    text-align: center;
+  
+}
+.bt2:hover{
+
+  transform: scale(1.19);
+  text-decoration: none;
+  color: #fff;
+  
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+a:hover{
+  text-decoration: none;
+  color: #fff;
+}
+.save{
+  border: none;
+  border-radius: 20px;
+  font-size: 20px;
+  color: #fff;
+  background:linear-gradient(90deg,#02074e,#0e1bd0) ;
+  padding: 5px 15px 5px 15px;
+}
+
+
+
+/* CSS  for back btn*/
+.button-34 {
+  background: #b8b8e4;
+  position: fixed;
+  top: 30px;
+  right: 35px;
+  border-radius: 999px;
+  box-shadow: #9393eb 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}

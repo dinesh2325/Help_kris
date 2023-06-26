@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/store.css">
+    <link rel="stylesheet" type="text/css" href="/category.css">
 
     <title>Document</title>
 </head>
 
 <body>
 
-    <!-- filterbar -->
-   
+    <div>
+        <h1>
+           <%=cat%>
+        </h1>
+    </div>
 
+    
+    <!-- filterbar -->
     <select name="filter" id="filterbar" onchange="searchfun2()">
         <option name="choose">Price Filter</option>
         <option value="100">less than 100</option>
@@ -26,9 +31,7 @@
     </select>
 
     <div class="div3">
-        <h1>
-            <%=record.name%>
-        </h1>
+    
         <table id="mytable" class="content-table">
             <thead>
                 <tr>
@@ -53,8 +56,10 @@
                                     <%=element.status%>
                                 </td>
                                 <%if(element.status==="Available"){%>
-                                    <td><a href="/<%=element._id%>/<%=user._id%>/buy">BUY</a></td>
-                                    <%}%>
+                                    <td> <button><a href="/<%=element._id%>/<%=user._id%>/buy" class="buy">Buy</a></button>    </td>
+                                    <%}else{%>
+                                        <td></td>
+                                        <%}%>
                             </tr>
                             <%}%>
                                 <%})%>

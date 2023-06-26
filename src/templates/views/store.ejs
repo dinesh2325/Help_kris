@@ -17,16 +17,16 @@
         <div class="nav">
             <ul>
                 <li>
-                    <a href="/category/<%=user._id%>/Electronics"> Electronics</a>
+                    <a href="/category/<%=user._id%>/Electronics"  class="ao"> Electronics</a>
                 </li>
                 <li>
-                    <a href="/category/<%=user._id%>/Stationary"> Stationary</a>
+                    <a href="/category/<%=user._id%>/Stationary" class="ao"> Stationary</a>
                 </li>
                 <li>
-                    <a href="/category/<%=user._id%>/Clothing"> Clothing</a>
+                    <a href="/category/<%=user._id%>/Clothing" class="ao"> Clothing</a>
                 </li>
                 <li>
-                    <a href="/category/<%=user._id%>/Books"> Books</a>
+                    <a href="/category/<%=user._id%>/Books" class="ao"> Books</a>
                 </li>
             </ul>
 
@@ -85,8 +85,10 @@
                                     <%=element.status%>
                                 </td>
                                 <%if(element.status==="Available"){%>
-                                    <td><a href="/<%=element._id%>/<%=user._id%>/buy">BUY</a></td>
-                                    <%}%>
+                                    <td> <button><a href="/<%=element._id%>/<%=user._id%>/buy" class="buy">Buy</a></button>    </td>
+                                    <%}else{%>
+                                        <td>Out of Stock!</td><%}%>
+
                             </tr>
                             <%}%>
                                 <%})%>
