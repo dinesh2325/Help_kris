@@ -20,21 +20,21 @@ const BorrowItem =require("./model/borrow.js")      //borrowed items
 
 
 
-app.use(express.json())                                        
+app.use(express.json())                                     //puts the parsed data in req.body          
 app.use(express.urlencoded({extended:true}))                     //as a bodyparser
 
 const port=process.env.PORT || 3000
 const ejs=require("ejs")                                       //for register partial method
 
 
-const staticpath=path.join(__dirname,"../public")
+const staticpath=path.join(__dirname,"../public")              //used to join
 const templatepath=path.join(__dirname,"./templates/views")
 const partialpath=path.join(__dirname,"./templates/partials")
       
 
 
 
-app.use(express.static(staticpath))
+app.use(express.static(staticpath))                //these code are written to connect javascript, bootstrap, jquery 
 app.use('/css',express.static(path.join(__dirname,"../node_modules/bootstrap/dist/css")))
 app.use('/js',express.static(path.join(__dirname,"../node_modules/bootstrap/dist/js")))
 app.use('/jq',express.static(path.join(__dirname,"../node_modules/jquery/dist")))
@@ -48,7 +48,7 @@ app.set("views",templatepath)
 
 //.........routing ...............
 //home
-app.get("/",function(req,res){
+app.get("/",function(req,res){                     
     res.render("home");
 })
 
@@ -128,20 +128,90 @@ app.post("/login",async(req,res)=>{
 
 
 
-//render profile page
+//render profile page 
 app.get("/profile/:id",async(req,res)=>{
     try{
-        const userData=await collection.findById({_id:req.params.id})
-        res.render("profile",{user:userData});
+        const userData=await collection.findById({_id:req.params.id})   // id home2.ejs wale page se utaya hai, and then use database wale id se comapre karke find kiya hai 
+        res.render("profile",{user:userData});              
         
-    }
+    }                                                  
     catch(err){
         res.render(err);
     }
 })
 
+
+//for updating user detail in profile page
+app.post("/profile/:id/update", async(req,res)=>{
+    // try{        
+
+    const userData=await collection.findById({_id:req.params.id});
+    var newname,newphone,newhostel,newregistration,newgender,newyear;
+    if(req.body.name===""){
+         newname=userData.name;
+    }
+    else newname=req.body.name;
+
+
+    
+    if(req.body.Phone===""){
+        newphone=userData.phone;
+    }
+    else newphone=req.body.Phone;
+
+
+    
+    if(req.body.Hostel===""){
+        newhostel=userData.Hostel;
+    }
+    else newhostel=req.body.Hostel;
+
+
+    
+    if(req.body.Registration===""){
+        newregistration=userData.Registration;
+    }
+    else newregistration=req.body.Registration;
+    
+
+
+
+    if(req.body.Gender===""){
+        var newgender=userData.Gender;
+    }
+    else newgender=req.body.Gender;
+
+    if(req.body.Year===""){
+        var newyear=userData.Year;
+    }
+    else newyear=req.body.Year;
+
+
+
+
+
+                 
+    const result=await collection.findOneAndUpdate({ "_id": req.params.id }, { "$set": { "name": newname, "phone":newphone, "Registration":newregistration, "Year":newyear,
+           "Hostel":newhostel,
+            "Gender":newgender}});
+
+         
+            res.redirect('back'); 
+               
+           
+        
+         
+    //     }
+    // catch(err){
+    //     console.log("you did it");
+    //     res.render();
+    // }
+})
+
+
+
 // ..............................
-// lending page
+// lending page (profile)
 app.get("/profile/:id/lend",async(req,res)=>{
     try{
         const userData=await collection.findById({_id:req.params.id})
@@ -156,21 +226,29 @@ app.get("/profile/:id/lend",async(req,res)=>{
 
 
 
-//lending a items
+//lending a items (form for lending)
 app.post("/profile/:id/lend",async(req,res)=>{
+  
+    const search =await collection.findById({_id:req.body.userid});
+    if(search){
         const data={
             name:req.body.name,
             price:req.body.price,
             time:req.body.time,
-            sellername:req.body.username,
-            sellerphone:req.body.userphone,
-            sellerid:req.body.userid,
+            sellername:search.name,
+            sellerphone:search.phone,
+            sellerid:search._id,
             status:"Available",
             category:req.body.cat,
         }
         
         await LendItem.insertMany([data])
-      
+        res.render("home2",{user:search});       }
+    else{
+        console.log("not found");
+    }
+  
+
 })
 
 
@@ -330,7 +408,7 @@ app.get("/category/:userid/:categoryname",async(req,res)=>{
     try{
            const data=await LendItem.find({category:req.params.categoryname})  
            const buyerdata=await collection.findById({_id:req.params.userid}); 
-           res.render("category",{record:data,user:buyerdata});
+           res.render("category",{record:data,user:buyerdata,cat:req.params.categoryname});
     }
     catch(err){
         console.log(err);

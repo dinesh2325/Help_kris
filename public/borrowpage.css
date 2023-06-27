@@ -91,9 +91,9 @@ background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, F
 
 
 .chaticon{
-    position:relative;
-    top:260px;
-    right:30px;
+    position:fixed;
+    top:650px;
+    right:50px;
 }
 
 
@@ -106,7 +106,7 @@ background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, F
 .container2 {
   position: absolute;
   left: 50%;
-  top: 600px;
+  top: 650px;
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
@@ -153,4 +153,32 @@ svg {
   color: white;
   font-size: 18px;
   font-weight: 100;
+}
+
+
+
+/* CSS  for back btn*/
+.button-34 {
+  background: #b8b8e4;
+  position: fixed;
+  top: 30px;
+  right: 35px;
+  border-radius: 999px;
+  box-shadow: #9393eb 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
 }

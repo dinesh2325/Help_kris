@@ -29,7 +29,23 @@ const RegisterSchema=new mongoose.Schema({
         type:String,
         required:true,
        
+    },
+    Registration:{
+        type:String,
+    },
+    Year:{
+        type:String,
+    },
+    Hostel:{
+        type: String,
+    },
+    
+    Gender:{
+        type:String,
     }
+
+
+
 
 });
 

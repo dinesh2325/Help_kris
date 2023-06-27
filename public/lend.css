@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+    
+
+}
+
+body{
+    /* background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(5,12,55,1) 34%, rgba(11,23,25,1) 85%);  */
+  background-image: url(lend.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+div.main{
+    width: 450px;
+    margin: 100px 800px 0px auto;
+}
+h2{
+    text-align: center;
+    padding: 15px;
+    font-family: 'Poppins';
+}
+div.register{
+    background: linear-gradient(45deg, #110b59, rgb(9, 15, 52) );
+    width: 100%;
+    font-size: 20px;
+    border-radius: 25px;
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 5px 5px 15px  rgba(246, 243, 243, 0.3);
+    color: rgb(245, 238, 238) ;
+    text-decoration: solid;
+}
+form#register{
+    margin: 40px;
+}
+label{
+    font-family:'Monaco';
+    font-size: 18px;
+    font-style: italic;
+}
+input#name{
+    width: 300px;
+    border: 1px solid #f0ecf4;
+    border-radius: 12px;
+    outline: 0;
+    padding: 7px;
+    background-color: #f0ebf1;
+    box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);
+}
+input#submit{
+    width:200px ;
+    padding: 7px;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: 600;
+    border-radius: 5px;
+    background-color: rgb(56, 33, 77);
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid rgba(225,225,225,0.3);
+  box-shadow: 2px 2px 2px rgba(245, 241, 241, 0.3);
+  
+  
+}
+label,span,h2{
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+}
+
+
+
+
+/* CSS  for back btn*/
+.button-34 {
+    background: #b8b8e4;
+    position: fixed;
+    top: 30px;
+    right: 35px;
+    border-radius: 999px;
+    box-shadow: #9393eb 0 10px 20px -10px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+    word-break: break-word;
+    border: 0;
+  }
